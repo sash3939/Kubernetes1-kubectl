@@ -89,6 +89,7 @@
 
 <img width="571" alt="enable addon dashboard" src="https://github.com/user-attachments/assets/2fa5e48e-ef6b-490f-897f-ae7d1908059e">
 
+
 <img width="420" alt="status dashboard" src="https://github.com/user-attachments/assets/d8d0f65b-87cb-4630-8ea1-ade5d9c2c9b1">
 
 
