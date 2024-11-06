@@ -34,11 +34,24 @@
 
   <img width="258" alt="get nodes" src="https://github.com/user-attachments/assets/0e5c552f-e944-4f94-8060-38d9d4400d3b">
 
- 
     - включить addon можно через команду `microk8s enable`; 
+
+<img width="571" alt="enable addon dashboard" src="https://github.com/user-attachments/assets/6e6ccca0-6f9e-4706-aadd-48d757dfb010">
+
+<img width="420" alt="status dashboard" src="https://github.com/user-attachments/assets/32097800-b10d-4445-8b18-c373d832acfb">
+
     - список addon `microk8s status`;
+
+<img width="530" alt="microk8s status" src="https://github.com/user-attachments/assets/31e8d8e4-884f-4ee5-b91a-0248179308e1">
+
     - вывод конфигурации `microk8s config`;
+
+<img width="712" alt="microk8s config" src="https://github.com/user-attachments/assets/8644965c-d834-4ad9-aa8d-3b9288a83abc">
+ 
     - проброс порта для подключения локально `microk8s kubectl port-forward -n kube-system service/kubernetes-dashboard 10443:443`.
+
+<img width="532" alt="image" src="https://github.com/user-attachments/assets/359cf379-4d87-4503-9d96-9a2b7d5191a2">
+
 
 3. Настройка внешнего подключения:
     - отредактировать файл /var/snap/microk8s/current/certs/csr.conf.template
@@ -69,15 +82,59 @@
 ### Задание 1. Установка MicroK8S
 
 1. Установить MicroK8S на локальную машину или на удалённую виртуальную машину.
+
+<img width="198" alt="microk8s version" src="https://github.com/user-attachments/assets/092044fd-8509-4876-81d2-fb1915e87d6b">
+
 2. Установить dashboard.
+
+<img width="571" alt="enable addon dashboard" src="https://github.com/user-attachments/assets/2fa5e48e-ef6b-490f-897f-ae7d1908059e">
+
+<img width="420" alt="status dashboard" src="https://github.com/user-attachments/assets/d8d0f65b-87cb-4630-8ea1-ade5d9c2c9b1">
+
+
 3. Сгенерировать сертификат для подключения к внешнему ip-адресу.
+
+Добавить вначале внешний IP в файл с данными для формирования сертификатов
+
+<img width="510" alt="Add IP" src="https://github.com/user-attachments/assets/4c89d55e-84e3-4e05-b608-385f18bca537">
+
+Затем обновляем сертификаты
+
+**sudo microk8s refresh-certs --cert front-proxy-client.crt
+sudo microk8s refresh-certs --cert ca.crt**
+
+<img width="478" alt="refresh cert" src="https://github.com/user-attachments/assets/e7505d66-a535-4a4d-af75-d978ff5fd06b">
 
 ------
 
 ### Задание 2. Установка и настройка локального kubectl
 1. Установить на локальную машину kubectl.
+
+<img width="566" alt="kubectl status" src="https://github.com/user-attachments/assets/358ea932-acb4-43e5-8330-43d48a59ea96">
+
 2. Настроить локально подключение к кластеру.
+
+Передаем конфиг с сертификатами, тогда только появится файл config
+microk8s config > ~/.kube/config
+
 3. Подключиться к дашборду с помощью port-forward.
+
+<img width="374" alt="connect to server" src="https://github.com/user-attachments/assets/6dd63d25-82f1-4ff2-abd5-35fe337b4a7f">
+
+Генерируем токен
+**microk8s kubectl create token default**
+Затем копируем этот токен и вставляем по адресу https://127.0.0.1:10443 в поле для Token
+
+<img width="632" alt="Dashboard" src="https://github.com/user-attachments/assets/94e99519-9e13-4476-a4d6-be0bb7cf6c87">
+
+<img width="689" alt="Dashboard kubectl" src="https://github.com/user-attachments/assets/969bce82-8b6a-4c4f-9650-8b3243e85e61">
+
+<img width="1204" alt="All dashboard" src="https://github.com/user-attachments/assets/0308ab55-07bd-4d6d-bf4c-33d51e5694c4">
+
+**Get nodes**
+
+<img width="258" alt="get nodes" src="https://github.com/user-attachments/assets/48caba9e-d15b-4503-9de5-de3710226094">
+
 
 ------
 
