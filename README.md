@@ -101,8 +101,10 @@
 
 Затем обновляем сертификаты
 
-**sudo microk8s refresh-certs --cert front-proxy-client.crt
-sudo microk8s refresh-certs --cert ca.crt**
+**sudo microk8s refresh-certs --cert front-proxy-client.crt**
+
+**sudo microk8s refresh-certs --cert ca.crt**
+
 
 <img width="478" alt="refresh cert" src="https://github.com/user-attachments/assets/e7505d66-a535-4a4d-af75-d978ff5fd06b">
 
